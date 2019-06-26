@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "Cloak":"/components/_cloak/_cloak",
+    "t-button": "/components/_button/_button",
+    "t-comfirm": "/components/_comfirm/_comfirm"
+  }
+}

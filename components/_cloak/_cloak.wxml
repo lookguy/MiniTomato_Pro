@@ -1,0 +1,9 @@
+<!--components/cloak/_cloak.wxml-->
+<view class="cloak">
+  <view class="circle">
+    <image class="tomato" src="/images/tomato.png"></image>
+    <block>
+      <text class="tomato-tips">点击开始闹钟</text>
+    </block>
+  </view>
+</view>

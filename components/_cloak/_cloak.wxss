@@ -1,0 +1,27 @@
+/* components/cloak/_cloak.wxss */
+.cloak {
+  display: flex;
+  justify-content: center;
+  padding: 40rpx 0;
+}
+.cloak .circle{
+  height: 400rpx;
+  width: 400rpx;
+  position: relative;
+}
+.tomato{
+  height: 100%;
+  width: 100%;
+  transition: opacity .1s;
+  opacity: 1;
+}
+.tomato:active{
+  opacity: .8;
+}
+.tomato-tips{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 32rpx;
+}

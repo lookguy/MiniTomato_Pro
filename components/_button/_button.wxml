@@ -1,0 +1,2 @@
+<!--components/_button/_button.wxml-->
+<button type="primary" size="mini" bindtap="click">{{title}}</button>

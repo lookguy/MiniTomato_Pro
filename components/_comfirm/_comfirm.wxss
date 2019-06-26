@@ -1,0 +1,56 @@
+.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(20, 30, 48, 0.6);
+}
+
+.comfirm {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 25rpx 0 25rpx 0;
+  background: rgb(82, 99, 122);
+  color: #fff;
+  border-radius: 16rpx;
+  width: 640rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  width: 100%;
+}
+
+.textarea {
+  border: 2rpx solid #fff;
+  border-radius: 12rpx;
+  width: 90%;
+  margin: 0 auto;
+  height: 360rpx;
+  margin-block-end: 22rpx;
+  padding: 10rpx 10rpx;
+  font-size: 32 rpx;
+  text-align: left;
+  background: rgba(0,0,0,.15);
+}
+
+.actions {
+  display: flex;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.actions .btn {
+  color: #fff;
+  border: none;
+  font-size: 32rpx;
+  line-height: 1.6;
+}

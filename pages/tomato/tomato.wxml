@@ -1,0 +1,6 @@
+<view class="container">
+  <view><t-cloak></t-cloak></view>
+  <view><t-button title="暂停"></t-button></view>
+  <view><t-button title="放弃"></t-button></view>
+  <view><t-button title="再来一组"></t-button></view>
+</view>

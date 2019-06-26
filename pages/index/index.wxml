@@ -13,4 +13,5 @@
   <block>
     <navigator url="/pages/test/test?id=1&text='never'">test</navigator>
   </block>
+  <t-button title="按钮组1"></t-button>
 </view>
