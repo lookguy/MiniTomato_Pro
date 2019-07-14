@@ -5,8 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time_now: null,
-    unitTime: null,
     showComfirm: false,
     target_value: "",
     planning: [{
@@ -25,70 +23,6 @@ Page({
       id: 3,
       compelete: false
     }, ]
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-    console.log(options);
-    let time = new Date();
-    let hour = time.getHours();
-    let minute = time.getMinutes();
-    this.data.time_now = `${this.formatTime(hour)}:${this.formatTime(minute)}`;
-    this.data.unitTime = hour < 12 ? "AM" : "PM";
-    this.setData({
-      time_now: this.data.time_now,
-      unitTime: this.data.unitTime
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /* 时间格式处理 */
-  formatTime(time) {
-    if (time > 10) return time;
-    return `0${time}`
   },
   /* 自定义事件 */
   show_comfirm(opt){

@@ -1,2 +1,2 @@
 <!--components/_button/_button.wxml-->
-<button type="primary" size="mini" bindtap="click">{{title}}</button>
+<button class="tomato-button t-button" type="primary" size="{{size}}" bindtap="click">{{title}}</button>

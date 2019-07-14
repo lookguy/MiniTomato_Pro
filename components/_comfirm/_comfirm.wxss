@@ -5,6 +5,7 @@
   height: 100%;
   width: 100%;
   background: rgba(20, 30, 48, 0.6);
+  z-index: 3;
 }
 
 .comfirm {

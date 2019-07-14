@@ -1,16 +1,19 @@
 <!--pages/home/home.wxml-->
 <view class="app">
   <view class="header">
-    <text class="title-time">{{time_now}} {{unitTime}}</text>
-    <scroll-view class="scroll-pannel" scroll-y="true">
+    <scroll-view class="scroll-pannel {{planning.length>0?'todo-list-pannel':''}}" scroll-y="true">
       <view class="planning-item {{item.compelete?'compelete':''}}" wx:for-index="index" bindtap="show_action" wx:for="{{planning}}" wx:for-item="item" wx:key="{{item.index}}" data-index="{{index}}">
-        <text>{{index+1}}:{{item.content}}</text>
+        <label>
+          <checkbox class="todo-list" />
+          <text class="todo-list-text">{{item.content}}</text>
+        </label>
       </view>
     </scroll-view>
   </view>
   <view class="cloak">
     <t-button title="开始添加" bindtapButton="tap_button"></t-button>
-    <Cloak></Cloak>
   </view>
+
+  <Cloak></Cloak>
   <t-comfirm visible="{{showComfirm}}" bindopenComfirm="show_comfirm" bindcloseComfirm="show_close" value="{{target_value}}"></t-comfirm>
 </view>

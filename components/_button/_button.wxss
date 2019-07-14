@@ -1,1 +1,4 @@
-/* components/_button/_button.wxss */
+.tomato-button.t-button{
+  background: #FF7256;
+  font-size: 32rpx;
+}
