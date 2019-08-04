@@ -25,7 +25,7 @@ Page({
     }, ]
   },
   /* 自定义事件 */
-  show_comfirm(opt){
+  addTodos(opt){
     console.log(opt.detail)
     let id = this.data.planning.length
     this.data.showComfirm = false
@@ -50,5 +50,10 @@ Page({
     this.data.target_value = this.data.planning[event.currentTarget.dataset.index].content
     this.data.showComfirm = true
     this.setData({ 'target_value': this.data.target_value, 'showComfirm': this.data.showComfirm })
+  },
+  start(){
+    wx.navigateTo({
+      url: '/pages/tomato/tomato'
+    })
   }
 })

@@ -1,6 +1,12 @@
 <view class="container">
-  <view><t-cloak></t-cloak></view>
-  <view><t-button title="暂停"></t-button></view>
-  <view><t-button title="放弃"></t-button></view>
-  <view><t-button title="再来一组"></t-button></view>
+  <t-cloak text="{{time}}"></t-cloak>
+  <view wx:if="{{!isAgain}}">
+    <t-button wx:if="{{isReady}}" title="暂停" bindtap="clearTime"></t-button>
+    <t-button wx:else title="开始" bindtap="formatTime"></t-button>
+    <t-button title="放弃" bindtap="abandon"></t-button>
+  </view>
+  <view wx:else>
+    <t-button title="再来一组" bindtap="again"></t-button>
+  </view>
+  <Comfirm visible="{{visible}}" bindopenComfirm="send" bindcloseComfirm="close" value="{{target_value}}" placeholder="输入您的放弃原因，不写默认取消" />
 </view>

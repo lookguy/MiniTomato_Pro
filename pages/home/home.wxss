@@ -38,6 +38,7 @@
   padding: 10rpx;
   box-shadow: 2rpx 2rpx 6rpx 4rpx #eee;
   border-radius: 4rpx;
+  transition: all 400ms ease-in-out 500ms;
 }
 
 .app .planning-item label {
@@ -79,5 +80,7 @@
 
 .app .planning-item.compelete {
   text-decoration: line-through;
+  width: 0;
+  display: none;
 }
 

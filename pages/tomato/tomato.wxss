@@ -1,1 +1,11 @@
 /* pages/tomato/tomato.wxss */
+.container button {
+  width: 400rpx;
+  margin-block-start: 20rpx;
+}
+.container button:active{
+  opacity: .8;
+}
+.container button:first{
+  margin-block-start: 0;
+}

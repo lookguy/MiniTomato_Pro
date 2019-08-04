@@ -1,8 +1,8 @@
 <!--components/_comfirm/_comfirm.wxml-->
 <view class="container" wx:if="{{visible}}">
-  <view class="comfirm">
+  <view class="comfirm rotate" animation="{{readyShow}}">
     <form class="form" bindsubmit="comfirm">
-      <textarea class="textarea" name="textarea" auto-focus="true" placeholder="{{placeholder}}" value="{{value}}"></textarea>
+      <textarea class="textarea" name="textarea" auto-focus="true" placeholder="{{placeholder}}" placeholder-class="t_placeholder" value="{{value}}"></textarea>
       <view class="actions">
         <button class="btn" plain="true" hover-class="active" form-type="submit">确定</button>
         <button class="btn" plain="true" hover-class="active" bindtap="cancel">取消</button>

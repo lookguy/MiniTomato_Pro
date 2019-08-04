@@ -4,34 +4,34 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    visible:{
+    visible: {
       type: Boolean,
-      value: true
+      value: false
     },
     placeholder: {
       type: String,
       value: "placeholder"
     },
-    value:{
-      type:String,
+    value: {
+      type: String,
       value: ""
     }
   },
-
   /**
    * 组件的初始数据
    */
-  data: {
-  },
-
+  data: {},
   /**
    * 组件的方法列表
    */
   methods: {
-    comfirm(e){
-      this.triggerEvent("openComfirm",e.detail.value.textarea)
+    comfirm(e) {
+      if (e.detail.value.textarea == "") {
+        return this.cancel()
+      }
+      this.triggerEvent("openComfirm", e.detail.value.textarea)
     },
-    cancel(){
+    cancel() {
       this.triggerEvent("closeComfirm")
     }
   }

@@ -2,9 +2,9 @@
 <view class="app">
   <view class="header">
     <scroll-view class="scroll-pannel {{planning.length>0?'todo-list-pannel':''}}" scroll-y="true">
-      <view class="planning-item {{item.compelete?'compelete':''}}" wx:for-index="index" bindtap="show_action" wx:for="{{planning}}" wx:for-item="item" wx:key="{{item.index}}" data-index="{{index}}">
+      <view class="planning-item {{item.compelete?'compelete':''}}" wx:for-index="index" wx:for="{{planning}}" wx:for-item="item" wx:key="{{item.index}}" data-index="{{index}}" bindtap="test">
         <label>
-          <checkbox class="todo-list" />
+          <checkbox class="todo-list" checked="{{item.compelete}}" />
           <text class="todo-list-text">{{item.content}}</text>
         </label>
       </view>
@@ -14,6 +14,6 @@
     <t-button title="开始添加" bindtapButton="tap_button"></t-button>
   </view>
 
-  <Cloak></Cloak>
-  <t-comfirm visible="{{showComfirm}}" bindopenComfirm="show_comfirm" bindcloseComfirm="show_close" value="{{target_value}}"></t-comfirm>
+  <Cloak bindtap="start"></Cloak>
+  <t-comfirm visible="{{showComfirm}}" bindopenComfirm="addTodos" bindcloseComfirm="show_close" value="{{target_value}}" placeholder="输入您的任务"></t-comfirm>
 </view>

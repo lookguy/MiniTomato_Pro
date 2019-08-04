@@ -2,16 +2,18 @@
 .cloak {
   display: flex;
   justify-content: center;
-  padding: 40rpx 0;
+  padding: 60rpx 0;
 }
 .cloak .circle{
-  height: 400rpx;
-  width: 400rpx;
+  margin: 0 auto;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .tomato{
-  height: 100%;
-  width: 100%;
+  height: 320rpx;
+  width: 320rpx;
   transition: opacity .1s;
   opacity: 1;
 }
@@ -20,8 +22,10 @@
 }
 .tomato-tips{
   position: absolute;
+  font-size: 38rpx;
+  color: #fff;
+  text-align: center;
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
-  font-size: 32rpx;
 }
