@@ -1,0 +1,121 @@
+/* pages/mycenter/mycenter.wxss */
+.font-decoration{
+  position: relative;
+}
+.font-decoration::after{
+  content: "";
+  display: block;
+  position: absolute;
+  width: 110%;
+  bottom: 0;
+  height: .5em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffd0c9;
+  z-index: -1;
+}
+.app {
+  background: #fafafa;
+  height: 100vh;
+}
+
+.header {
+  height: 160rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  margin-block-end: 30rpx;
+  padding: 30rpx;
+  box-shadow: 0 0 6rpx 4rpx #eee;
+}
+
+.header .useravatar {
+  width: 160rpx;
+}
+
+.header .username {
+  height: 160rpx;
+  margin-inline-start: 30rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.header .username .tips {
+  width: 200rpx;
+  font-size: 0.65em;
+  position: absolute;
+  bottom: 10rpx;
+  left: 0;
+  letter-spacing: 0.1em;
+  color: #f6705a;
+}
+.feedback{
+  height: 100%;
+  margin-inline-start: auto;
+}
+.feedback button{
+  background: none;
+  border: none;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+  color: #f6705a;
+  font-size: .65em;
+}
+.feedback button::after{
+  border: none;
+}
+
+.tab{
+  background: #fff;
+  padding: 30rpx 0;
+  margin-block-end: 30rpx;
+  display: flex;
+}
+.tab .tab-title {
+  width: 50%;
+  text-align: center;
+  font-size: 28rpx;
+  position: relative;
+}
+.tab .tab-title.active::after{
+  content: "";
+  display: block;
+  width: 100rpx;
+  height: 8rpx;
+  border-radius: 4rpx;
+  position: absolute;
+  bottom: -20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f6705a;
+}
+
+.list{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 380rpx;
+  margin-block-start: -30rpx;
+  padding-block-end: 30rpx;
+}
+.list .card {
+  background: #fff;
+  padding: 30rpx 40rpx;
+  margin-block-start: 30rpx;
+}
+.list .card .title{
+  display: inline-block;
+  margin-block-end: 20rpx;
+}
+.list .card .list-content {
+  font-size: .75em;
+  display: flex;
+  margin: 20rpx 0;
+}
+.list .list-content .time{
+  display: inline-block;
+  padding-inline-end: 10rpx;
+}

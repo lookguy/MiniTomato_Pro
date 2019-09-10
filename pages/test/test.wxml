@@ -1,9 +1,0 @@
-<!--pages/test/test.wxml-->
-<text class='ittext'>pages/test/test.wxml</text>
-<view id="data-{{type}}" wx:if="false">{{name}}</view>
-<block wx:for="{{arr}}" wx:for-item="it" wx:key="id">
-<view>id:{{it.id}}-{{it.text}}</view>
-</block>
-<button bindtap='reverseArr'>反序</button>
-<button bindtap='addArr'>增加</button>
-<button bindtap='changeArr'>改变列表首个字段</button>

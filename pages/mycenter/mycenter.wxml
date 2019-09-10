@@ -1,0 +1,82 @@
+<view class="app">
+  <view class="header">
+    <view class="useravatar">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="username">
+      <open-data class="font-decoration" type="userNickName"></open-data>
+      <text class="tips">番茄闹钟是否还满意</text>
+    </view>
+    <view class="feedback">
+      <button open-type="contact">问题反馈</button>
+    </view>
+  </view>
+  <view class="tab">
+    <text class="tab-title">番茄历史</text>
+    <text class="tab-title active">我完成的任务</text>
+  </view>
+  <scroll-view class="list" scroll-y>
+    <view class="card">
+      <text class="title font-decoration">本周二</text>
+      <view class="list-content">
+        <text class="time">14:00</text>
+        <text class="descrition">完成了相关内容</text>
+      </view>
+    </view>
+    <view class="card">
+      <text class="title font-decoration">本周二</text>
+      <view class="list-content">
+        <text class="time format-text">14:00</text>
+        <text class="descrition format-text">完成了相关内容完成了相关内容完成了相关内容完成了相关内容完成了相关内容完成了相关内容</text>
+      </view>
+      <view class="list-content">
+        <text class="time">14:00</text>
+        <text class="descrition">完成了相关内容</text>
+      </view>
+      <view class="list-content">
+        <text class="time">14:00</text>
+        <text class="descrition">完成了相关内容</text>
+      </view>
+    </view>
+    <view class="card">
+      <text class="title font-decoration">本周二</text>
+      <view class="list-content">
+        <text class="time">14:00</text>
+        <text class="descrition">完成了相关内容</text>
+      </view>
+      <view class="list-content">
+        <text class="time">14:00</text>
+        <text class="descrition">完成了相关内容</text>
+      </view>
+    </view>
+    <view class="card">
+      <text class="title font-decoration">本周二</text>
+      <view class="list-content">
+        <text class="time">14:00</text>
+        <text class="descrition">完成了相关内容</text>
+      </view>
+    </view>
+
+    <view class="card">
+      <text class="title font-decoration">本周二</text>
+      <view class="list-content">
+        <text class="time">14:00</text>
+        <text class="descrition">完成了相关内容</text>
+      </view>
+    </view>
+    <view class="card">
+      <text class="title font-decoration">本周二</text>
+      <view class="list-content">
+        <text class="time">14:00</text>
+        <text class="descrition">完成了相关内容</text>
+      </view>
+    </view>
+    <view class="card">
+      <text class="title font-decoration">本周二</text>
+      <view class="list-content">
+        <text class="time">14:00</text>
+        <text class="descrition">完成了相关内容</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

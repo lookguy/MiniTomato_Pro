@@ -3,7 +3,7 @@
     "pages/home/home",
     "pages/tomato/tomato",
     "pages/index/index",
-    "pages/test/test"
+    "pages/mycenter/mycenter"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -31,7 +31,7 @@
         "selectedIconPath": "images/total-active.png"
       },
       {
-        "pagePath": "pages/test/test",
+        "pagePath": "pages/mycenter/mycenter",
         "text": "我的",
         "iconPath": "images/me.png",
         "selectedIconPath": "images/me-active.png"

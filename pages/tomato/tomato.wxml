@@ -2,7 +2,7 @@
   <t-cloak text="{{time}}"></t-cloak>
   <view wx:if="{{!isAgain}}">
     <t-button wx:if="{{isReady}}" title="暂停" bindtap="clearTime"></t-button>
-    <t-button wx:else title="开始" bindtap="formatTime"></t-button>
+    <t-button wx:else title="开始" bindtap="start"></t-button>
     <t-button title="放弃" bindtap="abandon"></t-button>
   </view>
   <view wx:else>
