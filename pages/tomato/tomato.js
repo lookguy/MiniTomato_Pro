@@ -78,10 +78,9 @@ Page({
     this.setData({isAgain:this.data.isAgain})
     this.start()
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-    this.start()
+
+  onShow: function() {
+    this.start();
+    
   },
 })

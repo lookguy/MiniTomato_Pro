@@ -1,57 +1,118 @@
 // pages/home/home.js
-Page({
+const {
+  http
+} = require("../../lib/http.js");
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
+    showComfirm_update: false,
     showComfirm: false,
     target_value: "",
-    planning: [{
-      content: "今天要做什么，准备什么,及时完成！(*Φ皿Φ*)",
-      id: 1,
-      createDate: null,
-      compelete: true
-    }, {
-      content: "今天要做什么，准备什么，玩下游戏",
-      createDate: null,
-      id: 2,
-      compelete: false
-    }, {
-      content: "今天要做什么，准备什么，玩下游戏",
-      createDate: null,
-      id: 3,
-      compelete: false
-    }, ]
+    target_update: {},
+    planning: []
+  },
+  onShow() {
+    this.initData()
   },
   /* 自定义事件 */
-  addTodos(opt){
-    console.log(opt.detail)
+  initData() {
+    http.get("/todos?completed=false")
+      .then(res => {
+        if (res.statusCode == 200) {
+          let resources = res.data.resources;
+          this.data.planning = resources;
+          this.setData({
+            planning: resources
+          });
+        }
+      })
+      .catch(err => {
+        throw (err)
+      });
+  },
+  addTodos(opt) {
+    // console.log(opt.detail);
     let id = this.data.planning.length
-    this.data.showComfirm = false
-    this.data.planning.push({
-      content: opt.detail,
-      createDate: null,
-      id,
-      compelete: false
+    this.data.showComfirm = false;
+    http.post("/todos", {
+        description: opt.detail
+      })
+      .then(res => console.log(res))
+      .catch(err => {
+        throw (err)
+      });
+    this.setData({
+      'showComfirm': this.data.showComfirm
     })
-    this.setData({ 'showComfirm': this.data.showComfirm,planning:this.data.planning})
+    this.initData();
   },
-  tap_button(){
+  destory(e){
+    console.log(e)
+    let recordID = e.currentTarget.dataset.target.id
+    wx.showModal({
+      title: '警示',
+      content: '这将会删除本条记录',
+      success:()=>{
+        http.put(`/todos/${recordID}`,{ completed:true })
+        .then(res=>{
+          if(res.statusCode==200){
+            this.initData();
+          };
+        })
+        .catch(err=>{
+          throw(err);
+        });
+      }
+    })
+  },
+  update(e) {
+    this.data.showComfirm_update = true
+    this.data.target_update = e.currentTarget.dataset.target
+    this.setData({
+      'showComfirm_update': this.data.showComfirm_update,
+      "target_update": this.data.target_update
+    })
+  },
+  updateTodos(e) {
+    http.put(`/todos/${this.data.target_update.id}`, {description:e.detail})
+    .then(res=>{
+      console.log(res)
+      if(res.statusCode==200){
+        this.initData();
+      };
+      this.setData({"showComfirm_update":false});
+    })
+    .catch(err=>{
+      throw(err)
+    })
+  },
+  tap_button() {
     this.data.showComfirm = true
-    this.setData({ 'showComfirm': this.data.showComfirm })
+    this.setData({
+      'showComfirm': this.data.showComfirm
+    })
   },
-  show_close(){
+  show_close() {
     this.data.showComfirm = false
-    this.setData({ 'showComfirm': this.data.showComfirm })
+    this.data.showComfirm_update = false
+    this.setData({
+      'showComfirm': this.data.showComfirm,
+      'showComfirm_update': this.data.showComfirm_update
+    })
   },
-  show_action(event){
+  show_action(event) {
     console.log(event.currentTarget.dataset.index)
     this.data.target_value = this.data.planning[event.currentTarget.dataset.index].content
     this.data.showComfirm = true
-    this.setData({ 'target_value': this.data.target_value, 'showComfirm': this.data.showComfirm })
+    this.setData({
+      'target_value': this.data.target_value,
+      'showComfirm': this.data.showComfirm
+    })
   },
-  start(){
+  start() {
     wx.navigateTo({
       url: '/pages/tomato/tomato'
     })

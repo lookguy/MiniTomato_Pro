@@ -28,6 +28,9 @@
   z-index: 1;
 }
 .app .planning-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   background: #fff;
   box-sizing: border-box;
   text-align: left;
@@ -48,7 +51,7 @@
 }
 
 .app .planning-item .todo-list {
-  padding: 2rpx;
+  padding: 2rpx 20rpx;
 }
 
 .app .planning-item .todo-list .wx-checkbox-input {
@@ -71,6 +74,7 @@
 
 .app .planning-item .todo-list, .app .planning-item .todo-list-text {
   display: inline-block;
+  width: 100%;
 }
 
 .cloak {
