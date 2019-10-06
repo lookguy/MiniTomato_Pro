@@ -1,0 +1,10 @@
+<view class="login">
+  <view class="avatar">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class="name-wrap">
+    <open-data type="userNickName"></open-data>
+  </view>
+  <button class="loginButton" bindgetuserinfo="login" open-type="getUserInfo" withCredentails="true">登陆</button>
+  <navigator url="/pages/binding/binding"><text class="binding">还没有PC账号？去注册</text></navigator>
+</view>

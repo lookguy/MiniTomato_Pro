@@ -12,70 +12,15 @@
     </view>
   </view>
   <view class="tab">
-    <text class="tab-title">番茄历史</text>
-    <text class="tab-title active">我完成的任务</text>
+    <text class="tab-title {{tapWord=='history'&&'active'}}" bindtap="changeTab" data-tap="history">番茄历史</text>
+    <text class="tab-title {{tapWord=='compelete'&&'active'}}" bindtap="changeTab" data-tap="compelete">我完成的任务</text>
   </view>
   <scroll-view class="list" scroll-y>
-    <view class="card">
-      <text class="title font-decoration">本周二</text>
-      <view class="list-content">
-        <text class="time">14:00</text>
-        <text class="descrition">完成了相关内容</text>
-      </view>
-    </view>
-    <view class="card">
-      <text class="title font-decoration">本周二</text>
-      <view class="list-content">
-        <text class="time format-text">14:00</text>
-        <text class="descrition format-text">完成了相关内容完成了相关内容完成了相关内容完成了相关内容完成了相关内容完成了相关内容</text>
-      </view>
-      <view class="list-content">
-        <text class="time">14:00</text>
-        <text class="descrition">完成了相关内容</text>
-      </view>
-      <view class="list-content">
-        <text class="time">14:00</text>
-        <text class="descrition">完成了相关内容</text>
-      </view>
-    </view>
-    <view class="card">
-      <text class="title font-decoration">本周二</text>
-      <view class="list-content">
-        <text class="time">14:00</text>
-        <text class="descrition">完成了相关内容</text>
-      </view>
-      <view class="list-content">
-        <text class="time">14:00</text>
-        <text class="descrition">完成了相关内容</text>
-      </view>
-    </view>
-    <view class="card">
-      <text class="title font-decoration">本周二</text>
-      <view class="list-content">
-        <text class="time">14:00</text>
-        <text class="descrition">完成了相关内容</text>
-      </view>
-    </view>
-
-    <view class="card">
-      <text class="title font-decoration">本周二</text>
-      <view class="list-content">
-        <text class="time">14:00</text>
-        <text class="descrition">完成了相关内容</text>
-      </view>
-    </view>
-    <view class="card">
-      <text class="title font-decoration">本周二</text>
-      <view class="list-content">
-        <text class="time">14:00</text>
-        <text class="descrition">完成了相关内容</text>
-      </view>
-    </view>
-    <view class="card">
-      <text class="title font-decoration">本周二</text>
-      <view class="list-content">
-        <text class="time">14:00</text>
-        <text class="descrition">完成了相关内容</text>
+    <view class="card" wx:for="{{listData}}" wx:for-item="card" wx:key="item.id">
+      <text class="title font-decoration">{{card.timeTitle}}</text>
+      <view class="list-content" wx:for="{{card.content}}" wx:key="*this">
+        <text class="time">{{item.time}}</text>
+        <text class="descrition">{{item.text}}</text>
       </view>
     </view>
   </scroll-view>

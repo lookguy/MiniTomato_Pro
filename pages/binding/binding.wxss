@@ -1,0 +1,26 @@
+.binding {
+  height: 100vh;
+  padding-block-start: 83rpx;
+}
+.binding .title {
+  color: #333;
+  font-size: 32rpx;
+  padding-inline-start: 44rpx;
+}
+
+.binding .input-wraper{
+  padding: 0 55rpx;
+}
+.binding .input-wraper>input {
+  border: 2px solid #ef9b75;
+  padding: 16rpx 32rpx;
+  border-radius: 16rpx;
+  color: #333;
+  margin: 56rpx 0;
+}
+.binding .tips{
+  color:#ef9b75;
+  font-size: 24rpx;
+  text-align: center;
+  margin-block-start: 40rpx;
+}

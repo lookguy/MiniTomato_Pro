@@ -1,0 +1,14 @@
+<view class="binding">
+  <view class="title" wx:if="{{isBinding}}">绑定PC账号</view>
+  <view class="title" wx:else>注册PC账号</view>
+  <view class="input-wraper">
+    <input bindinput="watchAccount" placeholder="账号" value="{{account}}"></input>
+    <input bindinput="watchPassword" placeholder="密码" value="{{password}}"></input>
+  </view>
+  <t-button size="mini" title="绑定" wx:if="{{isBinding}}"></t-button>
+  <t-button size="mini" title="注册" wx:else></t-button>
+  <view class="tips" bindtap="changeStatus">
+    <text wx:if="{{isBinding}}">还没有PC账号，注册吧兄弟 （点击注册）</text>
+    <text wx:else>绑定PC账号，立即同步数据</text>
+  </view>
+</view>

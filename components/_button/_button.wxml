@@ -1,2 +1,4 @@
 <!--components/_button/_button.wxml-->
-<button class="tomato-button t-button" type="primary" size="{{size}}" bindtap="click">{{title}}</button>
+<view class="tomato-button">
+  <button class="t-button" hover-class="active" type="primary" size="{{size}}" bindtap="click">{{title}}</button>
+</view>
