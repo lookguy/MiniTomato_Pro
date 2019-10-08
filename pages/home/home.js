@@ -49,24 +49,20 @@ Page({
     })
     this.initData();
   },
-  destory(e){
-    console.log(e)
+  completion(e){
     let recordID = e.currentTarget.dataset.target.id
-    wx.showModal({
-      title: '警示',
-      content: '这将会删除本条记录',
-      success:()=>{
-        http.put(`/todos/${recordID}`,{ completed:true })
-        .then(res=>{
-          if(res.statusCode==200){
-            this.initData();
-          };
-        })
-        .catch(err=>{
-          throw(err);
-        });
-      }
-    })
+    http.put(`/todos/${recordID}`, { completed: true })
+      .then(res => {
+        if (res.statusCode == 200) {
+          this.initData();
+          wx.showToast({
+            title: '本条记录已完成',
+          })
+        };
+      })
+      .catch(err => {
+        throw (err);
+      });
   },
   update(e) {
     this.data.showComfirm_update = true

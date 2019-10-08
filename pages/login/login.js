@@ -6,17 +6,12 @@ const {
   app_secret
 } = getApp().globalData;
 Page({
-  data: {
-
-  },
-
   login(e) {
     const loginUrl = '/sign_in/mini_program_user'
     const homeUrl = '/pages/home/home'
     let encrypted_data = e.detail.encryptedData
     let iv = e.detail.iv
     let code
-
     wx.login({
       success(res) {
         code = res.code
@@ -37,8 +32,17 @@ Page({
           .catch(err => console.log(err))
       },
       fail(err) {
-        console.log(err, 2)
+        throw(err, 2)
       }
     })
+  },
+  onShow(){
+    let userInfo = wx.getStorageSync('userInfo');
+    let token = wx.getStorageSync('userInfo');
+    if (userInfo&&token){
+      wx.reLaunch({
+        url: '/pages/home/home',
+      })
+    }
   }
 })

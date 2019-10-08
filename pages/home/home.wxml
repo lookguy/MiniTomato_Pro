@@ -4,9 +4,9 @@
     <scroll-view class="scroll-pannel {{planning.length>0?'todo-list-pannel':''}}" scroll-y="true">
       <view class="planning-item {{item.completed?'complete':''}}" wx:for-index="index" wx:for="{{planning}}" wx:for-item="item" wx:key="{{item.id}}" data-index="{{index}}">
         <label>
-          <checkbox class="todo-list" checked="{{item.completed}}" disabled/>
+          <checkbox class="todo-list" checked="{{item.completed}}" data-target="{{item}}" bindtap="completion"/>
         </label>
-        <text class="todo-list-text" bindtap="update" bindlongpress="destory" data-target="{{item}}">{{item.description}}</text>
+        <text class="todo-list-text" bindtap="update" data-target="{{item}}">{{item.description}}</text>
       </view>
     </scroll-view>
   </view>

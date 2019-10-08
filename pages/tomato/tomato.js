@@ -1,4 +1,7 @@
 // pages/tomato/tomato.js
+const {
+  http
+} = require("../../lib/http.js");
 Page({
 
   /**
@@ -7,10 +10,12 @@ Page({
   clearTimeId: null,
   data: {
     count: 1500,
+    id: "",
     time: null,
     isReady: true,
     visible: false,
     isAgain: false,
+    target_value: ""
   },
 
   //  根据秒数格式化时间
@@ -25,17 +30,21 @@ Page({
     })
   },
   //开始时间
-  start(){
+  start() {
     this.formatTime()
     this.clearTimeId = setInterval(() => {
-      this.data.count--;
-      this.formatTime()
-      if (this.data.count == 0) {
-        this.clearTime()
-        this.data.isAgain = true
-        this.setData({'isAgain':true})
-      }
-    }, 1000)
+        this.data.count--;
+        this.formatTime()
+        if (this.data.count == 0) {
+          this.updateTmt("时间终止", false)
+          this.clearTime()
+          this.data.isAgain = true
+          this.setData({
+            'isAgain': true
+          })
+        }
+      },
+      1000)
   },
   //暂停时间
   clearTime() {
@@ -59,9 +68,21 @@ Page({
   },
   //确定放弃
   send(e) {
-    wx.navigateBack({
-      delta:1
-    })
+    http.put(`/tomatoes/${this.data.id}`, {
+        description: e.detail,
+        aborted: false
+      })
+      .then(res => {
+        if (res.statusCode == 200) {
+          this.data.id = "";
+          wx.navigateBack({
+            delta: 1
+          })
+        }
+      })
+      .catch(err => {
+        throw (err)
+      })
   },
   //关闭
   close() {
@@ -70,17 +91,54 @@ Page({
       'visible': this.data.visible
     })
     this.start()
+    this.createTmt()
   },
   // 再来一组
-  again(){
+  again() {
     this.data.count = 1500;
-    this.data.isAgain =false;
-    this.setData({isAgain:this.data.isAgain})
+    this.data.isAgain = false;
+    this.setData({
+      isAgain: this.data.isAgain
+    })
     this.start()
+  },
+  //创建番茄
+  createTmt() {
+    http.post("/tomatoes")
+      .then(res => {
+        console.log(res)
+        this.data.id = res.data.resource.id
+      })
+      .catch(err => {
+        throw (err)
+      })
+  },
+  //更新番茄
+  updateTmt(description, aborted) {
+    http.put(`/tomatoes/${this.data.id}`, {
+        description,
+        aborted
+      })
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => {
+        throw (err)
+      })
   },
 
   onShow: function() {
     this.start();
-    
+  },
+  onReady() {
+    this.createTmt()
+  },
+  onHide() {
+    this.updateTmt("中途放弃", true)
+  },
+  onUnload() {
+    if (!this.data.id) return;
+    this.updateTmt("退出放弃", true)
+
   },
 })

@@ -1,9 +1,8 @@
 {
   "pages": [
+    "pages/login/login",
     "pages/home/home",
     "pages/tomato/tomato",
-    "pages/login/login",
-    "pages/index/index",
     "pages/binding/binding",
     "pages/mycenter/mycenter"
   ],
@@ -25,12 +24,6 @@
         "text": "专注",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home-active.png"
-      },
-      {
-        "pagePath": "pages/index/index",
-        "text": "数据统计",
-        "iconPath": "images/total.png",
-        "selectedIconPath": "images/total-active.png"
       },
       {
         "pagePath": "pages/mycenter/mycenter",

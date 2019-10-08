@@ -1,82 +1,58 @@
 // pages/mycenter/mycenter.js
+const {
+  http
+} = require("../../lib/http.js")
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     tapWord: "history",
-    listData: [
-      {
-        id: 1,
-        timeTitle: "本周一",
-        content:[
-          {
-            time: "14:00",
-            text: "完成了什么"
-          },
-          {
-            time: "16:00",
-            text: "又完成了什么"
-          }
-        ]
-      },
-      {
-        id: 2,
-        timeTitle: "本周二",
-        content: [
-          {
-            time: "14:00",
-            text: "完成了什么"
-          },
-          {
-            time: "16:00",
-            text: "又完成了什么"
-          },
-          {
-            time: "17:00",
-            text: "又完成了什么"
-          }
-        ]
-      },
-      {
-        id: 3,
-        timeTitle: "本周三",
-        content: [
-          {
-            time: "11:00",
-            text: "我试着把他编写完毕，希望赶得上"
-          },
-          {
-            time: "16:00",
-            text: "心里发慌，文中带皮"
-          },
-          {
-            time: "17:00",
-            text: "又完成了什么又完成了什么又完成了什么又完成了什么又完成了什么又完成了什么又完成了什么"
-          }
-        ]
-      },
-    ]
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
+    tomatoes: null,
+    todos: null,
   },
   changeTab: function(e) {
     this.data.tapWord = e.currentTarget.dataset.tap;
+    if (e.currentTarget.dataset.tap=="history"){
+      this.getTomatoes()
+    }else{
+      this.getTodos()
+    }
     this.setData({
       tapWord: e.currentTarget.dataset.tap
     })
-  }
+  },
+
+  onShow() {
+    this.getTomatoes();
+    this.getTodos();
+  },
+  getTomatoes() {
+    http.get("/tomatoes", {
+        is_group: "yes"
+      })
+      .then(res => {
+        if (res.statusCode == 200) {
+          this.data.tomatoes = res.data.resources
+          this.setData({ "tomatoes": res.data.resources })
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  },
+  getTodos() {
+    http.get("/todos", {
+        is_group: "yes"
+      })
+      .then(res => {
+        if (res.statusCode == 200) {
+          this.data.todos = res.data.resources
+          this.setData({ "todos": res.data.resources})
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  },
 })

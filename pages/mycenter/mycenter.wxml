@@ -15,12 +15,23 @@
     <text class="tab-title {{tapWord=='history'&&'active'}}" bindtap="changeTab" data-tap="history">番茄历史</text>
     <text class="tab-title {{tapWord=='compelete'&&'active'}}" bindtap="changeTab" data-tap="compelete">我完成的任务</text>
   </view>
-  <scroll-view class="list" scroll-y>
-    <view class="card" wx:for="{{listData}}" wx:for-item="card" wx:key="item.id">
-      <text class="title font-decoration">{{card.timeTitle}}</text>
-      <view class="list-content" wx:for="{{card.content}}" wx:key="*this">
-        <text class="time">{{item.time}}</text>
-        <text class="descrition">{{item.text}}</text>
+  <scroll-view class="list" wx:if="{{tapWord=='history'}}" scroll-y>
+    <view class="card" wx:for="{{tomatoes}}" wx:for-index="keys" wx:key="item.id">
+      <wxs src="../../lib/formattor.wxs" module="formattors"></wxs>
+      <text class="title font-decoration">{{formattor.monthFormat(keys)}}</text>
+      <view class="list-content" wx:for="{{tomatoes[keys]}}" wx:key="*this">
+        <text class="time">{{formattor.dateFormat(item.created_at,"hh:mm")}}</text>
+        <text class="descrition">{{item.description}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <scroll-view class="list" wx:else scroll-y>
+    <view class="card" wx:for="{{todos}}" wx:for-index="keys" wx:key="*this">
+      <wxs src="../../lib/formattor.wxs" module="formattor"></wxs>
+      <text class="title font-decoration">{{formattor.monthFormat(keys)}}</text>
+      <view class="list-content" wx:for="{{todos[keys]}}" wx:key="*this">
+        <text class="time">{{formattor.dateFormat(item.created_at,"hh:mm")}}</text>
+        <text class="descrition">{{item.description}}</text>
       </view>
     </view>
   </scroll-view>
