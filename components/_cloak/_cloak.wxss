@@ -1,8 +1,9 @@
 /* components/cloak/_cloak.wxss */
 .cloak {
+  height: 100%;
   display: flex;
   justify-content: center;
-  padding: 60rpx 0;
+  align-items: center;
 }
 .cloak .circle{
   margin: 0 auto;

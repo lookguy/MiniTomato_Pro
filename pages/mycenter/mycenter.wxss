@@ -17,12 +17,14 @@
 .app {
   background: #fafafa;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
-  height: 160rpx;
+  height: 20vh;
+  box-sizing: border-box;
   display: flex;
-  align-items: center;
   background: #fff;
   margin-block-end: 30rpx;
   padding: 30rpx;
@@ -31,6 +33,7 @@
 
 .header .useravatar {
   width: 160rpx;
+  height: 160rpx;
 }
 
 .header .username {
@@ -50,7 +53,7 @@
   color: #f6705a;
 }
 .feedback{
-  height: 100%;
+  height: auto;
   margin-inline-start: auto;
 }
 .feedback button{
@@ -90,14 +93,15 @@
   background: #f6705a;
 }
 
+.swiper-wrap{
+  /* height: 60vh; */
+  flex-grow: 1;
+}
+
 .list{
+  height: 100%;
   padding: 0 30rpx;
   box-sizing: border-box;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 380rpx;
   margin-block-start: -30rpx;
   padding-block-end: 30rpx;
 }
@@ -118,4 +122,28 @@
 .list .list-content .time{
   display: inline-block;
   padding-inline-end: 10rpx;
+}
+
+.loginTip{
+  padding: 30rpx;
+}
+.loginTip .nav{
+  text-align: center;
+  color: #f6705a;
+  margin-block-start: 50rpx;
+}
+
+button::after{border: none;}
+.button-hover {opacity: .6;}
+.loginButton {
+  width: 360rpx;
+  height: 80rpx;
+  border-radius: 16rpx;
+  color: #fff;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50rpx auto;
+  background: linear-gradient(to right,#ef9b75,#f6705a);
 }
